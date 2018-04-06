@@ -8,6 +8,16 @@
     text-decoration: none;
 }
 
+.centro{
+    width: 30%;
+    border: 0.9px solid blue;
+    float: left;
+    background-color: white;
+    margin-left: 33.3%;
+    text-align: center;
+    text-decoration: none;
+}
+
 .titulos{
     font-size: 28px;
     
