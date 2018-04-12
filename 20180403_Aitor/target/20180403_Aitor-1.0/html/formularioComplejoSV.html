@@ -9,73 +9,76 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/estilos.css">
     </head>
     <body>
-        <form method="post" action="../FormularioComplejoSV">
-            <table>
-                <tr>
-                    <td><label for="Usuario">Nombre de usuario:</label></td>
-                    <td><input type="text" id="Usuario" name="Usuario" required></td>
-                </tr>
-                <tr>
-                    <td><label for="Vehiculo">Vehículo: </label></td>
-                    <td>
-                        Coche: <input type="checkbox" id="Vehiculo" name="Vehiculo" value="Coche"/>
-                        Moto: <input type="checkbox" id="Vehiculo" name="Vehiculo" value="Moto"/>
-                        Bicicleta: <input type="checkbox" id="Vehiculo" name="Vehiculo" value="Bicicleta"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="Avatar">Avatar:</label></td>
-                    <td><input type="file" id="Avatar" name="Avatar" required></td>
-                </tr>
-                <tr>
-                    <td><label for="Password">Contraseña:</label></td>
-                    <td><input type="password" id="Password" name="Password" required></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="Comida">Comidas: </label>
-                    </td>
-                    <td>
-                        <select name="Comida" id="Comida">
-                            <option value="Chuletas">Chuletas</option>
-                            <option value="Lentejas">Lentejas</option>
-                            <option value="Paella">Paella</option>
-                            <option value="Gazpacho">Gazpacho</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="Bebida">Bebidas: </label>
-                    </td>
-                    <td>
-                        <select name="Bebida" id="Bebida" multiple>
-                            <option value="Agua">Agua</option>
-                            <option value="Fanta">Fanta</option>
-                            <option value="Cerveza">Cerveza</option>
-                            <option value="Vino">Vino</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Comentarios</td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea rows="4" cols="35" placeholder="Comentarios" name="Comentarios">
-                        </textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" name="enviar" value="Enviar">
-                        <input type="reset" name="Borrar">
-                    </td>
-                    <td><a href="../index.html">Menu Principal</a></td>
-                </tr>
-            </table>
-        </form>
+        <div class="rellenarForm">
+            <form method="post" action="../FormularioComplejoSV">
+                <table>
+                    <tr>
+                        <td><label for="Usuario">Nombre de usuario:</label></td>
+                        <td><input type="text" id="Usuario" name="Usuario" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Vehiculo">Vehículo: </label></td>
+                        <td>
+                            Coche: <input type="checkbox" id="Vehiculo" name="Vehiculo" value="Coche"/>
+                            Moto: <input type="checkbox" id="Vehiculo" name="Vehiculo" value="Moto"/>
+                            Bicicleta: <input type="checkbox" id="Vehiculo" name="Vehiculo" value="Bicicleta"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Avatar">Avatar:</label></td>
+                        <td><input type="file" id="Avatar" name="Avatar" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Password">Contraseña:</label></td>
+                        <td><input type="password" id="Password" name="Password" required></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Comida">Comidas: </label>
+                        </td>
+                        <td>
+                            <select name="Comida" id="Comida">
+                                <option value="Chuletas">Chuletas</option>
+                                <option value="Lentejas">Lentejas</option>
+                                <option value="Paella">Paella</option>
+                                <option value="Gazpacho">Gazpacho</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Bebida">Bebidas: </label>
+                        </td>
+                        <td>
+                            <select name="Bebida" id="Bebida" multiple>
+                                <option value="Agua">Agua</option>
+                                <option value="Fanta">Fanta</option>
+                                <option value="Cerveza">Cerveza</option>
+                                <option value="Vino">Vino</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Comentarios</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea rows="4" cols="35" placeholder="Comentarios" name="Comentarios">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="enviar" value="Enviar">
+                            <input type="reset" name="Borrar">
+                        </td>
+                        <td><a href="../index.html">Menu Principal</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 </html>

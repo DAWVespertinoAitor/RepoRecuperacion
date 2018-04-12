@@ -8,13 +8,22 @@
     text-decoration: none;
 }
 
-.centro{
+.columnasCentradas{
     width: 30%;
     border: 0.9px solid blue;
     float: left;
     background-color: white;
     margin-left: 33.3%;
     text-align: center;
+    text-decoration: none;
+}
+
+.rellenarForm{
+    width: 30%;
+    border: 0.9px solid blue;
+    float: left;
+    background-color: white;
+    margin-left: 33.3%;
     text-decoration: none;
 }
 

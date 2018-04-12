@@ -45,7 +45,7 @@ public class FormularioComplejoSV extends HttpServlet {
             out.println("<div class=\"columnas\">");
             
             Map<String, String[]> parametros = request.getParameterMap();
-            System.out.println(parametros.keySet());
+//            System.out.println(parametros.keySet());
             for(Iterator<String> i=parametros.keySet().iterator();i.hasNext();){
                 
                 String nombre = i.next();

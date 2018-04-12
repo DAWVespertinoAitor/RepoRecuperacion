@@ -52,7 +52,7 @@ public class FormularioComplejoCV extends HttpServlet {
                 
                 String nombre = i.next();
                 if (!nombre.startsWith("enviar")) {
-                    System.out.println(nombre);
+//                    System.out.println(nombre);
                     switch(nombre){
                         case "Nombre":
                             Pattern pattern = Pattern.compile("[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,}");

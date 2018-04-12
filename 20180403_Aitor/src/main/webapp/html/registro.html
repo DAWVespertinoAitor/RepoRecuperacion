@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/estilos.css">
+    </head>
+    <body>
+        <div class="rellenarForm">
+            <form method="post" action="../Registro">
+                <table>
+                    <tr>
+                        <td><h3>Datos Personales</h3></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Nombre">Nombre:</label></td>
+                        <td><input type="text" id="Nombre" name="Nombre" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Apellidos">Apellidos </label></td>
+                        <td><input type="text" id="Apellidos" name="Apellidos"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Hombre: <input type="radio" id="Sexo" name="Sexo" value="Hombre" checked/>
+                            Mujer: <input type="radio" id="Sexo" name="Sexo" value="Mujer"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="fechaN">Fecha de Nacimiento: </label></td>
+                        <td><input type="text" id="fechaN" name="fechaN" placeholder="DD/MM/AAAA"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Documentacion">Documentación: </label></td>
+                        <td>
+                            <select name="Documentacion" id="Documentacion">
+                                <option value="NIF">NIF</option>
+                                <option value="NIE">NIE</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="numeroDocum">Numero de Documentación: </label></td>
+                        <td><input type="text" id="numeroDocum" name="numeroDocum"></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Datos del Usuario</h3></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Usuario">Usuario: </label></td>
+                        <td><input type="text" id="Usuario" name="Usuario"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Contraseña">Contraseña: </label></td>
+                        <td><input type="password" id="Contraseña" name="Contraseña"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Telefono">Teléfono o movil: </label></td>
+                        <td><input type="text" id="Telefono" name="Telefono"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Preferencia"><h3>Preferencias:</h3></label></td>
+                    </tr>
+                    <tr>
+                        <td>Deporte: </td>
+                        <td>
+                            <input type="checkbox" id="Preferencia" name="Preferencia" value="Deporte"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lectura: </td>
+                        <td>
+                            <input type="checkbox" id="Preferencia" name="Preferencia" value="Lectura"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cine: </td>
+                        <td>
+                            <input type="checkbox" id="Preferencia" name="Preferencia" value="Cine"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Viajes: </td>
+                        <td>
+                            <input type="checkbox" id="Preferencia" name="Preferencia" value="Viajes"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="enviar" value="Enviar">
+                            <input type="reset" name="Borrar">
+                        </td>
+                        <td><a href="../index.html">Menu Principal</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

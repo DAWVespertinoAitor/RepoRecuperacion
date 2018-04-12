@@ -9,7 +9,7 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/estilos.css">
     </head>
     <body>
         <!--
@@ -20,44 +20,46 @@ and open the template in the editor.
             genero
             todos los campos son requeridos
         -->
-        <form method="post" action="../FormularioSimple">
-            <table>
-                <tr>
-                    <td><h2>Datos de la cuenta</h2></td>
-                </tr>
-                <tr>
-                    <td><label for="Usuario">Nombre de usuario:</label></td>
-                    <td><input type="text" id="Usuario" name="Usuario" required></td>
-                </tr>
-                <tr>
-                    <td><label for="Contraseña">Contraseña:</label></td>
-                    <td><input type="password" id="Contraseña" name="Contraseña" required></td>
-                </tr>
-                <tr>
-                    <td><h2>Datos personales</h2></td>
-                </tr>
-                <tr>
-                    <td><label for="Nombre">Nombre:</label></td>
-                    <td><input type="text" id="Nombre" name="Nombre" required></td>
-                </tr>
-                <tr>
-                    <td><label for="Apellidos">Apellidos:</label></td>
-                    <td><input type="text" id="Apellidos" name="Apellidos" required></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="Hombre">Hombre </label><input type="radio" id="Hombre" name="Hombre">
-                        <label for="Mujer">Mujer </label><input type="radio" id="Mujer" name="Mujer">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" name="enviar" value="Enviar">
-                        <input type="reset" name="Borrar">
-                    </td>
-                    <td><a href="../index.html">Menu Principal</a></td>
-                </tr>
-            </table>
-        </form>
+        <div class="rellenarForm">
+            <form method="post" action="../FormularioSimple">
+                <table>
+                    <tr>
+                        <td><h2>Datos de la cuenta</h2></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Usuario">Nombre de usuario:</label></td>
+                        <td><input type="text" id="Usuario" name="Usuario" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Contraseña">Contraseña:</label></td>
+                        <td><input type="password" id="Contraseña" name="Contraseña" required></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Datos personales</h2></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Nombre">Nombre:</label></td>
+                        <td><input type="text" id="Nombre" name="Nombre" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Apellidos">Apellidos:</label></td>
+                        <td><input type="text" id="Apellidos" name="Apellidos" required></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Hombre">Hombre </label><input type="radio" id="Hombre" name="Hombre">
+                            <label for="Mujer">Mujer </label><input type="radio" id="Mujer" name="Mujer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="enviar" value="Enviar">
+                            <input type="reset" name="Borrar">
+                        </td>
+                        <td><a href="../index.html">Menu Principal</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 </html>
