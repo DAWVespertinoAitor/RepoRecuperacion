@@ -26,20 +26,13 @@ import javax.servlet.http.HttpServletResponse;
 public class Registro extends HttpServlet {
 
     char[] letras = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+    String[] meses = {"Enero","Feberero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+    String[] mesesIngles = {"JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"};
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<meta charset=\"UTF-8\"/>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + request.getContextPath() + "/CSS/estilos.css\" media=\"screen\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class=\"columnas\">");
-
             int todoCorrecto = 0;
             boolean fechaNaci = false;
             boolean documentacion = false;
@@ -50,7 +43,21 @@ public class Registro extends HttpServlet {
             boolean pref3 = false;
             boolean pref4 = false;
             String sexo = "";
+            String fecha = "";
             int contador = 0;
+            
+            
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\"/>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + request.getContextPath() + "/CSS/estilos.css\" media=\"screen\" />");
+            out.println("</head>");
+            out.println("<body>");
+            
+
+            
 
             Map<String, String[]> parametros = request.getParameterMap();
             System.out.println(parametros.keySet());
@@ -64,24 +71,31 @@ public class Registro extends HttpServlet {
                     System.out.println("Llego hasta el switch");
                     switch (nombre) {
                         case "Sexo":
-                            String sexoChecked = request.getParameter("Sexo");
-                            System.out.println("Llego hasta el sexo");
-                            if (sexoChecked == "Hombre") {
-                                sexo = "Hombre";
-                            } else {
-                                sexo = "Mujer";
-                            }
+                             sexo = request.getParameter("Sexo");
+//                            System.out.println("Llego hasta el sexo");
+//                            if (sexoChecked == "Hombre") {
+//                                sexo = "Mujer";
+//                            } else {
+//                                sexo = "Hombre";
+//                            }
                             break;
 
                         case "fechaN":
                             LocalDate ahora = LocalDate.now();
-                            String fecha = request.getParameter("fechaN");
+                            fecha = request.getParameter("fechaN");
 
                             if (!fecha.equals("")) {
                                 DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                                 LocalDate fechaNac = LocalDate.parse(fecha, fmt);
 
                                 if (fechaNac.compareTo(ahora) < 0) {
+                                    String mes = String.valueOf(fechaNac.getMonth());
+                                    for(int j = 0;j<mesesIngles.length;j++){
+                                        if(mesesIngles[j].equals(mes)){
+                                            fecha = fecha.substring(0,2)+" de "+meses[j] + " de "+fecha.substring(6,10);
+                                        }
+                                        
+                                    }
                                     todoCorrecto = todoCorrecto + 1;
                                     fechaNaci = true;
                                 }
@@ -151,7 +165,7 @@ public class Registro extends HttpServlet {
             }
 
             if (todoCorrecto == 3) {
-                System.out.println("TODO CORRECTO");
+                out.println("<div class=\"columnasCentradas\">");
                 for (Iterator<String> i = parametros.keySet().iterator(); i.hasNext();) {
                     String nombre = i.next();
                     if (!nombre.startsWith("enviar")) {
@@ -162,6 +176,8 @@ public class Registro extends HttpServlet {
                                     out.println((j + 1) + "º " + nombre + " - <strong>" + preferencias[j] + "</strong><br/>");
                                 }
                             }
+                        } else if(nombre.equals("fechaN")){
+                            out.println(nombre + " - <strong>" + fecha + "</strong><br/>");
                         } else {
                             out.println(nombre + " - <strong>" + request.getParameter(nombre) + "</strong><br/>");
                         }
@@ -172,6 +188,7 @@ public class Registro extends HttpServlet {
                 out.print("<p><a href='" + request.getContextPath() + "'>Menu Principal</a></p>");
                 out.print("</div>");
             } else {
+                out.println("<div class=\"rellenarForm\">");
                 out.print("<h1>Errores en el registro</h1>");
                 out.print("<form action='Registro' method='post'>");
                 out.print("<table>\n"
@@ -285,20 +302,20 @@ public class Registro extends HttpServlet {
                 }
 
                 out.print("<tr>\n"
-                        + "<td><label for=\"Preferencias\"><h3>Preferencias:</h3></label></td>\n"
+                        + "<td><label for=\"Preferencia\"><h3>Preferencias:</h3></label></td>\n"
                         + "</tr>");
                 if (pref1) {
                     out.print("<tr>\n"
                             + "<td>Deporte: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Deporte\" checked/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Deporte\" checked/>\n"
                             + "</td>\n"
                             + "</tr>");
                 } else {
                     out.print("<tr>\n"
                             + "<td>Deporte: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Deporte\"/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Deporte\"/>\n"
                             + "</td>\n"
                             + "</tr>");
                 }
@@ -306,14 +323,14 @@ public class Registro extends HttpServlet {
                     out.print("<tr>\n"
                             + "<td>Lectura: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Lectura\" checked/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Lectura\" checked/>\n"
                             + "</td>\n"
                             + "</tr>");
                 } else {
                     out.print("<tr>\n"
                             + "<td>Lectura: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Lectura\"/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Lectura\"/>\n"
                             + "</td>\n"
                             + "</tr>");
                 }
@@ -321,14 +338,14 @@ public class Registro extends HttpServlet {
                     out.print("<tr>\n"
                             + "<td>Cine: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Cine\" checked/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Cine\" checked/>\n"
                             + "</td>\n"
                             + "</tr>");
                 } else {
                     out.print("<tr>\n"
                             + "<td>Cine: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Cine\"/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Cine\"/>\n"
                             + "</td>\n"
                             + "</tr>");
                 }
@@ -336,14 +353,14 @@ public class Registro extends HttpServlet {
                     out.print("<tr>\n"
                             + "<td>Viajes: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Viajes\" checked/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Viajes\" checked/>\n"
                             + "</td>\n"
                             + "</tr>");
                 } else {
                     out.print("<tr>\n"
                             + "<td>Viajes: </td>\n"
                             + "<td>\n"
-                            + "<input type=\"checkbox\" id=\"Preferencias\" name=\"Preferencias\" value=\"Viajes\"/>\n"
+                            + "<input type=\"checkbox\" id=\"Preferencia\" name=\"Preferencia\" value=\"Viajes\"/>\n"
                             + "</td>\n"
                             + "</tr>");
                 }
