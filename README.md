@@ -10,4 +10,4 @@
 
 #Modificaciones
 15-04-2018 Proyecto del registro modificado para que muestre la fecha con el mes mostrado con su nombre y no con su digito.
-15-04-2018 Proyecto del registro modificado, ya selecciona las preferencias escogidas en el formulario html en el formulario creado por el servlet.
+15-04-2018 Proyecto del registro modificado, ya selecciona las preferencias escogidas en el formulario html en el formulario creado por el servlet.fgfg
